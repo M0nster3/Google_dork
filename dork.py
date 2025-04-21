@@ -2,7 +2,7 @@ import requests
 import time
 
 CLASH_API = "http://127.0.0.1:9182"
-CLASH_API_SECRET = "821409689"  # 设置为 Clash 配置中的 secret，如果没有就留空
+CLASH_API_SECRET = ""  # 设置为 Clash 配置中的 secret，如果没有就留空
 
 HEADERS = {
     "Content-Type": "application/json",
