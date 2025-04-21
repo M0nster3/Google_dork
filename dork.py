@@ -124,19 +124,19 @@ def perform_search(group, dork, amount, proxies, logfile):
         with print_lock:
             print(f"🌐 请求节点 [{proxy}]，当前使用节点 [{current_used}]，出口IP [{ip}] \n♻️ 搜索: {dork}")
             try:
-                results = search(
-                    term=dork,
-                    num_results=int(amount),
-                    sleep_interval=SEARCH_PAUSE
-                )
+                results = list(search(term=dork, num_results=int(amount), sleep_interval=SEARCH_PAUSE))
+
+                
+                valid_results = [url for url in results if url.startswith("http")]
+
                 logger(logfile, f"{dork}")
-                if results:
-                    for i, url in enumerate(results, 1):
+                if valid_results:
+                    for i, url in enumerate(valid_results, 1):
                         print(f"[+] {i}: {url}")
                         logger(logfile, f"{url}")
                 else:
-                    print("[-] 未找到结果。")
-                    logger(logfile, "[-] 未找到结果。")
+                    print("[-] 未找到有效结果。")
+                    logger(logfile, "[-] 未找到有效结果。")
                 print("\n")
                 logger(logfile, "\n")
                 return
