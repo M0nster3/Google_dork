@@ -1,0 +1,145 @@
+site:*.mgm.mo intitle:"index of" ("setting.php" | "configuration.php" | "config.php.txt" | "config.php.old" | "wp-config.php.old") -git
+site:*.mgm.mo intitle:"index of" ("db.py" | "database.json" | "logs.txt" | "Eventlog Analyzer")
+site:*.mgm.mo filetype:xls "root" database
+site:*.mgm.mo intitle:"index of" ("proftpd.conf" | "dhcpd.conf" | "server.conf" | "/etc/openldap" | "/etc/network") -sample
+site:*.mgm.mo (inurl:"/wp-json/oembed/1.0/embed?url=" | inurl:"/adminer.php" | inurl:"typo3/index.php") -github
+site:*.mgm.mo intitle:"index of" ("rbac.yaml" | "role.yaml" | "configmap.yaml" | "*-config.yaml") -example
+site:*.mgm.mo PHP Fatal error ext:log | ext:txt
+site:*.mgm.mo inurl:"/wp-content/debug.log"
+site:*.mgm.mo inurl:"/admin" intext:"administrator" filetype:txt
+site:*.mgm.mo intitle:"Fleet Management Portal" | "GlobalProtect Portal"
+site:*.mgm.mo inurl:pastebin ("mastercard" | "VISA"
+site:*.mgm.mo filetype:txt "CLAVE*.txt" | "clave*.txt"
+site:*.mgm.mo intitle:"index of" ("/node_modules/" | "/vendor/guzzlehttp" | "graphql-api") 
+site:*.mgm.mo ext:java "executeUpdate"
+site:*.mgm.mo intitle:"index of" "ec2" -aws
+site:*.mgm.mo inurl:".install.appcenter.ms/orgs/"
+site:*.mgm.mo inurl:("signup" | "sign-up" | "register" | "registration") filetype:php -example
+site:*.mgm.mo filetype:log ("Started by upstream project" | "Account Number") -test
+site:*.mgm.mo intitle:"index of" "plesk-stat" -wpbeginner
+site:*.mgm.mo allinurl:"add_vhost.php?lang=english") -wpbeginner
+site:*.mgm.mo intitle:"Index of /confidential" -git
+site:*.mgm.mo intext:"Open API Keys" -git
+site:*.mgm.mo intext:"robotics" inurl:/research filetype:pdf | doc | xls
+site:*.mgm.mo filetype:reg "HKEY_CURRENT_USER SSHHOSTKEYS" -sample
+site:*.mgm.mo intext:"encryption.txt" -sample
+site:*.mgm.mo intitle:"index of" "private" | "secret.txt" | "robots.txt"
+site:*.mgm.mo inurl:"?url=http"
+site:*.mgm.mo (intitle:"Index of /_MACOSX" | "/flipbook" | "/biuro") -github
+site:*.mgm.mo intitle:"index of" "main.js" | "phpstan.neon"
+site:*.mgm.mo inurl:"HappyAxis.jsp"
+site:*.mgm.mo inurl:"/cgi-bin/home.ha" | "/bitrix/redirect.php?goto="
+site:*.mgm.mo intitle:"index of" "./.database"
+site:*.mgm.mo inurl:logon|login|admin|manage|member|admin_login|login_admin|system|user|main|cms|backend site:baidu.com
+site:*.mgm.mo site:baidu.com (inurl:login | inurl:admin | inurl:manage | inurl:system | inurl:backend) (intitle:登陆 | intitle:后台 | intitle:管理 | intitle:认证)
+site:*.mgm.mo allintitle:"ASPECT Control Panel" | allintitle:"CAT12CE - WebInterface" | allintitle:"code-server login" | allintitle:"smart office suite - login page" | allintitle:"Opengear Management Console"
+site:*.mgm.mo allintitle:"MobileIron User Portal: Sign In" | allintitle:"Synapse Mobility Login" | allintitle:"ResolutionMD Login" | allintitle:"Login | Control WebPanel" | allintitle:"Cyberoam SSL VPN Portal"
+site:*.mgm.mo allintitle:"wireless controller login" | allintitle:"Log on to MACH-ProWeb" | allintitle:"MeshCentral - Login" | allintitle:"CrushFTP WebInterface" | allintitle:"Welcome admin"
+site:*.mgm.mo inurl:/sap/bc/gui/sap/its/webgui?sap-client=SAP* | inurl:/sap/bc/webdynpro/ | inurl:webdynpro/dispatcher | inurl:ushell/shells/abap
+site:*.mgm.mo inurl:/adfs/ls/ | inurl:/adfs/oauth2/authorize | inurl:idp/Authn/UserPassword | inurl:idp/SSO.saml2 | inurl:simplesaml/module
+site:*.mgm.mo inurl:resetpassword.do | inurl:forgotpassword.php | inurl:passwordreset.asp | inurl:"/index.php?route=account/forgotten" | inurl:ext/pwdreset
+site:*.mgm.mo inurl:gov.in | inurl:/seeyon/index.jsp | inurl:/opac/index.jsp | inurl:/customer/portal/ | inurl:AIMS/PS
+site:*.mgm.mo inurl:/zm/index.php | inurl:sslvpn_logon.shtml | inurl:/+CSCOE+/logon.html? | inurl:console-selfservice | inurl:passwordvault intext:cyberark
+site:*.mgm.mo inurl:/cgi-bin/luci | inurl:ui3.htm | inurl:device.rsp -com | inurl:microstrategy/servlet/mstrweb
+site:*.mgm.mo inurl:oauth2/v2.0/authorize | inurl:client_id= | inurl:prweb/PRAuth | inurl:ejbexplorer | inurl:oidc/authorize
+site:*.mgm.mo inurl:/web-ftp.cgi | inurl:EMSWebClient/ | inurl:fgtauth? | inurl:destination=portals | inurl:designs/imm/index.php
+site:*.mgm.mo inurl:authorization.do intext:"ADSelfService Plus" | inurl:newsdesk.cgi? | inurl:enter.php?phpbb_root_path= | inurl:/etc/passwd | inurl:initial:inurl:uux.aspx
+site:*.mgm.mo inurl:GeminiVAIdServer | inurl:assystnetmob | inurl:b2b/init.do | inurl:/dynamic/password-reset.html | inurl:start.swe?SWECmd
+site:*.mgm.mo intitle:"index of" ("db.properties" OR "db.properties.BAK" OR "credentials.xml" OR "credentials.inc")
+site:*.mgm.mo filetype:log "START test_database" OR "Header for logs at time"
+site:*.mgm.mo ("dsn: mysql:host=localhost;dbname=" OR "jdbc:sqlserver://localhost:1433" OR "jdbc:mysql://localhost:3306/") (ext:yml OR ext:txt OR ext:java) "password:" -git
+site:*.mgm.mo intitle:"index of" ("password.yml" OR "sitemanager.xml" OR "recentservers.xml" OR "filezilla.xml")
+site:*.mgm.mo intext:"-----BEGIN CERTIFICATE-----" ext:txt
+site:*.mgm.mo intitle:"index of" ("/usernames" OR "contacts.txt" OR "/parameters.yml*" OR "tomcat-users.xml" OR "/ftpusers")
+site:*.mgm.mo intitle:"index of" ("users.sql" OR "users.frm" OR "users.db" OR "service.grp")
+site:*.mgm.mo inurl:user intitle:index of ext:sql OR xls OR xml
+site:*.mgm.mo filetype:reg "DefaultPassword" OR "internet account manager" OR "HKEY_CURRENT_USER username"
+site:*.mgm.mo filetype:conf inurl:proftpd.conf -sample
+site:*.mgm.mo filetype:csv "Secret access key"
+site:*.mgm.mo filetype:xls "username.xlsx" OR intext:"username" OR intext:"password"
+site:*.mgm.mo intext:"root:x:0:0:root:/root:/bin/bash" inurl:"/etc/passwd"
+site:*.mgm.mo inurl:"/root/etc/passwd" intext:"home/*:"
+site:*.mgm.mo filetype:log ("authentication failure" OR "username putty" OR "logname=") -example
+site:*.mgm.mo (inurl:"_layouts/mobile/view.aspx?List=" OR inurl:"profile.php?lookup=1" OR inurl:"php inurl:hlstats") -github
+site:*.mgm.mo inurl:admin inurl:userlist -stackoverflow
+site:*.mgm.mo inurl:admin filetype:asp inurl:userlist -stackoverflow
+site:*.mgm.mo intitle:index.of (".bash_history" OR ".sh_history") -tutorial
+site:*.mgm.mo site:extremetracking.com inurl:"login=" OR intext:"webalizer" +intext:"Total Usernames"
+site:*.mgm.mo intext:"SteamUserPassphrase=" intext:"SteamAppUser=" -"username" -"user" filetype:txt
+site:*.mgm.mo inurl:root.asp?acs=anon OR inurl:perform.ini OR index of / lck
+site:*.mgm.mo CREATE ROLE + "ENCRYPTED PASSWORD" (ext:sql OR ext:txt OR ext:ini) -git
+site:*.mgm.mo File contains Sensitive Information (ext:log OR ext:txt OR ext:conf)
+site:*.mgm.mo index.of "perform.ini" OR intext:"webalizer" +intext:"Usage Statistics for"
+site:*.mgm.mo intitle:"index of" ("parameters.yml" OR "credentials.txt" OR "db.connection.js")
+site:*.mgm.mo intitle:"index of" "config.php.bak" -wpbeginner
+site:*.mgm.mo inurl:"/wp-config.php" ext:bak -wpbeginner
+site:*.mgm.mo intitle:"index of" ("pwd.db" OR "htpasswd" OR "passwrod*" OR "credentials" OR "password.txt" OR ".htpasswd") -github -example
+site:*.mgm.mo intitle:"index of" ("application-users.properties" OR "mgmt-users.properties" OR "*standalone.xml" OR "idx_config") -stackoverflow
+site:*.mgm.mo intitle:"index of" ("anaconda-ks.cfg" OR "anaconda-ks-new.cfg" OR "/master.passwd" OR "config.php.bak" OR "config.neon") -git -doc
+site:*.mgm.mo intitle:"index of" ("db.ini" OR "database.ini" OR "application.ini" OR "dbconnect.inc" OR "db.conf") -sample -test
+site:*.mgm.mo intitle:"index of" (".vscode" OR "sftp-config.json" OR ".ftpconfig" OR "globals.inc" OR "connect.inc") -tutorial
+site:*.mgm.mo intitle:"index of" ("places.sqlite" OR "key3.db" OR "Login Data" OR "Mail" OR "thunderbird") -mozilla -official
+site:*.mgm.mo intitle:"index of" ("sites.ini" OR "CCCam.cfg" OR "sc_serv.conf" OR "htpasswd.bak" OR ".mysql_history") -backup -repo
+site:*.mgm.mo intitle:"index of..etc" passwd -google -public
+site:*.mgm.mo parent directory "proftpdpasswd" -google -public
+site:*.mgm.mo intext:"index of" "uploads" -google -public
+site:*.mgm.mo intext:"index of" ("password.zip" OR "login.csv" OR "passwords.xlsx" OR "*.passwords.txt") -github -template
+site:*.mgm.mo intitle:"index.of" (inurl:"cvs" AND ("password" OR "passwd")) -pub -example
+site:*.mgm.mo site:pastebin.com intext:@gmail.com | @yahoo.com | @hotmail.com daterange:2457388-2457491
+site:*.mgm.mo intitle:"index of" ("pwd.db"|"htpasswd"|"credentials"|"passwrod*"|"*.passwords.txt"|"password.zip"|"config.php.bak"|"db.ini"|"application.ini"|"anaconda-ks.cfg") -git -sample
+site:*.mgm.mo (intext:"DB_PASSWORD"|"db_pass"|"MYSQL_ROOT_PASSWORD"|"POSTGRES_PASSWORD") (ext:env|ext:yml|ext:ini|ext:properties) -github -example
+site:*.mgm.mo (intext:"aws_access_key_id"|"aliyun_access_key") (ext:json|ext:yaml|ext:txt|ext:env) -sample -tutorial
+site:*.mgm.mo filetype:log ("password="|"pwd="|"pass:") ("admin"|"root"|"user") (after:2023) -debug -test
+site:*.mgm.mo (ext:conf|ext:cfg|ext:xml) ("password="|"secret="|"encrypt=") ("rcon"|"jdbc"|"ftp") -git -documentation
+site:*.mgm.mo (inurl:"wp-config.php"|inurl:"wp-content/uploads") ("DB_PASSWORD"|"FTP_PASS"|"password.txt") -wpbeginner -stackoverflow
+site:*.mgm.mo (ext:env|ext:properties) ("DATABASE_URL="|"REDIS_PASSWORD="|"MAIL_PASSWORD=") -example -template
+site:*.mgm.mo ext:key ("BEGIN RSA PRIVATE KEY"|"BEGIN OPENSSH PRIVATE KEY"|"BEGIN PRIVATE KEY") -github -demo
+site:*.mgm.mo intitle:"index of" ("application.properties"|"bootstrap.yml"|"standalone.xml"|"web.config") -test -example
+site:*.mgm.mo (intext:"SMTP_PASSWORD"|"MAIL_PASS") (ext:env|ext:php|ext:java) -documentation -sample
+site:*.mgm.mo (ext:tf|ext:tfvars) ("access_key"|"secret_key"|"token") -example -terraform.io
+site:*.mgm.mo (ext:git|ext:svn) ("password"|"credentials") ("log"|"config") -official -docs
+site:*.mgm.mo ext:sql ("INSERT INTO users"|"CREATE USER"|"IDENTIFIED BY") ("password"|"pwd") -github -backup
+site:*.mgm.mo (ext:cfg|ext:txt) ("enable secret"|"tacacs-server key") (cisco|huawei|juniper) -example -guide
+site:*.mgm.mo (ext:java|ext:py|ext:js) ("String password ="|"passwd = "|"db.connect(") -test -example
+site:*.mgm.mo (ext:xls|ext:xlsx|ext:doc) ("username"|"password"|"账号"|"密码") ("admin"|"系统") -template
+site:*.mgm.mo (inurl:"/manager/html"|inurl:"/admin") ("password="|"passwd=") (ext:txt|ext:html) -documentation
+site:*.mgm.mo (ext:sh|ext:bat|ext:ps1) ("-Password "|"--pass "|"DB_PASS=") -example -tutorial
+site:*.mgm.mo (ext:sqlite|ext:db) ("login_data"|"signons") ("chrome"|"firefox") -mozilla -google
+site:*.mgm.mo (intitle:"index of" OR intext:"parent directory") ("passwd"|"shadow"|".bak"|".old") ("db"|"config"|"admin") -git -example
+site:*.mgm.mo intext:"Warning: mysql_connect(): Access denied"
+site:*.mgm.mo intext:"Can't connect to local" intitle:warning
+site:*.mgm.mo intext:"--- WebView Livescope Http Server Error ---"
+site:*.mgm.mo inurl:"/smpwservices.fcc" | "/lm_private/CkeSetter.aspx"
+site:*.mgm.mo inurl:"index.php?id=" intext:"MySQL Error: 1064"
+site:*.mgm.mo iintext:"You have an error in your SQL syntax" | "ORA-00933: SQL command not properly ended"
+site:*.mgm.mo intitle:"index of" ("database.properties"|"config.ini"|"config.py"|"slapd.conf"|"mysqli.ini"|"ssh2.ini"|"php4/"|"ssh_host_ecdsa_key"|"htaccess.txt") -git
+site:*.mgm.mo (intitle:"index of" ("sqlite.db"|"dump.sql"|"users.ibd"|"db.frm"|"mysql.sh"|"performance_schema"|"db.zip"|"backup.xml"|"backup.php") -example
+site:*.mgm.mo ext:sql "CREATE ROLE"|"INSERT INTO admin" -example
+site:*.mgm.mo intitle:"index of" ("client.key.pem"|"oauth-private.key"|"server.crt"|"common.crt"|"ca.crt") -github
+site:*.mgm.mo -----BEGIN EC PRIVATE KEY----- | " -----BEGIN EC PARAMETERS-----" ext:pem | ext:key | ext:txt
+site:*.mgm.mo intitle:"index of" ("error_log"|"access_log"|"system.log"|"firewall.log"|"ftp.log"|"ws_ftp.log"|"GitLab ssh.log")
+site:*.mgm.mo filetype:log "PHP Parse error"|"TCPDFtcpdf.php" -stackoverflow
+site:*.mgm.mo intitle:"index of" (".env"|"venv"|"pyvenv.cfg"|".vscode"|"node_modules"|".git"|".svn"|".DS_Store"|".dockerignore") -doc
+site:*.mgm.mo intitle:"index of" ("payment"|"Invoices"|"paypal"|"aadhar card"|"pancard"|"contacts.vcf"|"WhatsApp Databases")
+site:*.mgm.mo intext:"CLAVE*.txt"|"KRAB-DECRYPT.txt" -forum
+site:*.mgm.mo intitle:"index of" ("admin"|"wp-config"|"drupal"|"joomla_update.php"|"tinyfilemanager.php")
+site:*.mgm.mo inurl:"/adminer.php"|"/wp-json/oembed" -wpbeginner
+site:*.mgm.mo (intitle:"index of" ("/aws.s3/"|"Cloudflare-CPanel"|"proxy.pac"|"owncloud/config"|"cctv"|"apache-log-parser")
+site:*.mgm.mo inurl:"tcpconfig.html" -sample
+site:*.mgm.mo intitle:"index of" ("/etc/mysql/"|"/etc/certs/"|"/root/etc/security/"|"/Windows/Recent"|"$Recycle.bin"|"Application Data/Microsoft/Credentials") -edu
+site:*.mgm.mo (intitle:"index of" ("*Maildir/new"|"mail spool"|"Roundcube"|"squirrelmail/")
+site:*.mgm.mo inurl:"/openwebmail/cgi-bin/" -mozilla
+site:*.mgm.mo (intitle:"index of" ("/bitcoin/"|"wallet.dat"|"blockchain")
+site:*.mgm.mo intext:"xampp-dav-unsecure:$apr1$" -coin
+site:*.mgm.mo (intitle:"index of" ("SCADA"|"WebServers.xml"|"global.asa"|"metadata"|"Eventlog Analyzer"|"Jenkins")
+site:*.mgm.mo inurl:"/nagios/" -cisco
+site:*.mgm.mo intitle:"index of" ("symfony/config"|"graphql/subscription"|"RESTgui"|"swagger-php")
+site:*.mgm.mo inurl:"/SAML2/SOAP/" -api
+site:*.mgm.mo (intitle:"index of" ("Desktop"|"My Documents"|"DCIM"|"Camera Roll"|"iCloud Photos")
+site:*.mgm.mo inurl:"/var/mobile/" -apple
+site:*.mgm.mo intitle:"index of" ("router.cfg"|"tomcat-users.xml"|"zebra.conf"|"ospfd.conf")
+site:*.mgm.mo inurl:"/cgi-bin/luci" -iot
+site:*.mgm.mo intitle:"index of" ("/tmp/"|"/cache/"|"/sass-cache/"|"/.Trash/")
+site:*.mgm.mo filetype:tmp "backup" -temp
+site:*.mgm.mo intitle:"index of" ("private"|"secret"|"confidential"|"passwords.xlsx")
+site:*.mgm.mo inurl:"/private_files" -legal
