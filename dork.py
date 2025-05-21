@@ -2,6 +2,7 @@
 # encoding: utf-8
 
 import threading
+import tempfile
 import requests
 import random
 import sys
@@ -9,7 +10,8 @@ import time
 from googlesearch import search  # type: ignore
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import os
-
+temp_file = None
+temp_path = ""
 print_lock = threading.Lock()
 
 # 设置 HTTP 代理环境变量，使 googlesearch 使用代理
@@ -124,19 +126,20 @@ def perform_search(group, dork, amount, proxies, logfile):
         with print_lock:
             print(f"🌐 请求节点 [{proxy}]，当前使用节点 [{current_used}]，出口IP [{ip}] \n♻️ 搜索: {dork}")
             try:
-                results = list(search(term=dork, num_results=int(amount), sleep_interval=SEARCH_PAUSE))
-
-                
+                results = search(
+                    term=dork,
+                    num_results=int(amount),
+                    sleep_interval=SEARCH_PAUSE
+                )
                 valid_results = [url for url in results if url.startswith("http")]
 
-                logger(logfile, f"{dork}")
                 if valid_results:
+                    logger(logfile, f"{dork}")
                     for i, url in enumerate(valid_results, 1):
                         print(f"[+] {i}: {url}")
                         logger(logfile, f"{url}")
                 else:
                     print("[-] 未找到有效结果。")
-                    logger(logfile, "[-] 未找到有效结果。")
                 print("\n")
                 logger(logfile, "\n")
                 return
@@ -144,6 +147,10 @@ def perform_search(group, dork, amount, proxies, logfile):
                 print(f"[!] 搜索失败（尝试 {attempt+1}/{MAX_RETRIES}）: {e}")
                 time.sleep(2)
     print(f"[×] 放弃搜索: {dork}")
+
+def replace_domain_in_dork(dork_line, domain):
+    """将 dork 行中的 mgm.mo 替换为指定域名"""
+    return dork_line.replace("mgm.mo", domain.strip())
 
 def main():
     global CLASH_API_BASE, CLASH_API_SECRET
@@ -163,37 +170,84 @@ def main():
 
     group = choose_proxy_group(proxy_groups)
 
-    dork_file = input("\n[+] 输入 Dork 文件路径: ").strip()
+    domains_file = input("\n[+] 输入 domain 文件路径: ").strip()
+    dork_file = input("\n[+] 输入 dork 文件路径: ").strip()
     try:
-        with open(dork_file, "r", encoding="utf-8") as f:
+        # 创建临时文件
+        temp_file = tempfile.NamedTemporaryFile(
+            mode='w', 
+            delete=False,
+            encoding='utf-8',
+            suffix='.txt'
+        )
+        temp_path = temp_file.name
+        print(f"[*] 创建临时文件: {temp_path}")
+
+        # 读取域名列表
+        with open(domains_file, "r") as f:
+            domains = [line.strip() for line in f if line.strip()]
+
+        # 读取 dork 模板
+        with open(dork_file, "r") as f:
+            dork_template = f.readlines()
+
+        # 为每个域名生成替换后的 dork
+        for domain in domains:
+            for line in dork_template:
+                replaced_line = replace_domain_in_dork(line, domain)
+                temp_file.write(replaced_line)
+
+        # 关闭文件确保内容写入磁盘
+        temp_file.close()
+        
+        print(f"[*] 临时文件内容已生成，路径: {temp_path}")
+        
+        # 这里可以添加处理临时文件的代码
+        # 例如：调用其他函数处理生成的 dork
+        # 处理完成后文件会被自动删除
+
+
+        with open(temp_path, "r", encoding="utf-8") as f:
+
             dorks = [line.strip() for line in f if line.strip()]
+
+
+        amount = input("[+] 每个 Dork 搜索多少条结果？(默认10): ").strip()
+        amount = int(amount) if amount.isdigit() else 10
+
+        save = input("[+] 是否保存结果到文件？(Y/N): ").strip().lower()
+        logfile = input("[+] 日志文件名: ").strip() if save == 'y' else None
+
+        proxies = get_all_proxies(group)
+        if not proxies:
+            print("[×] 无法获取代理列表。")
+            return
+
+        working_proxies = get_working_proxies(group, proxies)
+        if not working_proxies:
+            return
+
+        print(f"\n[✓] 共 {len(working_proxies)} 个可用节点，开始执行 Dork 搜索...\n")
+
+        with ThreadPoolExecutor(max_workers=THREADS) as executor:
+            futures = [executor.submit(perform_search, group, dork, amount, working_proxies, logfile) for dork in dorks]
+            for future in as_completed(futures):
+                future.result()
+
+        print("\n[*] 所有 Dork 搜索完成！")
+    except FileNotFoundError as e:
+        print(f"错误: 文件不存在 - {e.filename}")
     except Exception as e:
-        print(f"[!] 无法读取文件: {e}")
-        return
-
-    amount = input("[+] 每个 Dork 搜索多少条结果？(默认10): ").strip()
-    amount = int(amount) if amount.isdigit() else 10
-
-    save = input("[+] 是否保存结果到文件？(Y/N): ").strip().lower()
-    logfile = input("[+] 日志文件名: ").strip() if save == 'y' else None
-
-    proxies = get_all_proxies(group)
-    if not proxies:
-        print("[×] 无法获取代理列表。")
-        return
-
-    working_proxies = get_working_proxies(group, proxies)
-    if not working_proxies:
-        return
-
-    print(f"\n[✓] 共 {len(working_proxies)} 个可用节点，开始执行 Dork 搜索...\n")
-
-    with ThreadPoolExecutor(max_workers=THREADS) as executor:
-        futures = [executor.submit(perform_search, group, dork, amount, working_proxies, logfile) for dork in dorks]
-        for future in as_completed(futures):
-            future.result()
-
-    print("\n[*] 所有 Dork 搜索完成！")
+        print(f"发生错误: {str(e)}")
+    finally:
+            # 确保删除临时文件
+            if temp_path and os.path.exists(temp_path):
+                try:
+                    os.remove(temp_path)
+                    print(f"\n[*] 已清理临时文件: {temp_path}")
+                except Exception as e:
+                    print(f"[!] 删除临时文件失败: {str(e)}")
 
 if __name__ == "__main__":
     main()
+
